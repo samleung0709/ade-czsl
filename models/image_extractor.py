@@ -45,11 +45,17 @@ def get_image_extractor(arch = 'dino'):
     Returns
         Pytorch model
     '''
+    # if arch == 'clip':
+    #     model, preprocess = clip.load("ViT-B/32", device=device)
+    #     # Only keep the visual part
+    #     clip_model = model.visual
+    #     clip_model.preprocess = preprocess
+    #     return clip_model
 
     if arch == 'resnet18_conv':
         model = ResNet18_conv()
         model.load_state_dict(models.resnet18(pretrained=True).state_dict())
-
+    
     elif arch == 'dino':
         model = vit_base()
         state_dict = torch.load('./pretrain/dino_vitbase16_pretrain.pth')

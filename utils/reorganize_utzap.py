@@ -17,7 +17,7 @@ import torch
 import shutil
 import tqdm
 
-DATA_FOLDER= "data_check"
+DATA_FOLDER= "data_czsl"
 
 root = DATA_FOLDER+'/ut-zap50k/'
 os.makedirs(root+'/images',exist_ok=True)

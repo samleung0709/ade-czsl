@@ -241,6 +241,7 @@ class CompositionDataset(Dataset):
                 pair_list: path to textfile
             '''
             with open(pair_list, 'r') as f:
+                
                 pairs = f.read().strip().split('\n')
                 if self.args.dataset == 'vaw':
                     pairs = [t.split('+') for t in pairs]

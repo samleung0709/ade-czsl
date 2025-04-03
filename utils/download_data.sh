@@ -23,7 +23,7 @@ wget --show-progress -O $FOLDER/mitstates.zip http://wednesday.csail.mit.edu/jos
 wget --show-progress -O $FOLDER/utzap.zip http://vision.cs.utexas.edu/projects/finegrained/utzap50k/ut-zap50k-images.zip
 # wget --show-progress -O $FOLDER/splits.tar.gz http://www.cs.cmu.edu/~spurushw/publication/compositional/compositional_split_natural.tar.gz
 wget --show-progress -O $FOLDER/splits.tar.gz https://www.senthilpurushwalkam.com/publication/compositional/compositional_split_natural.tar.gz
-wget --show-progress -O $FOLDER/cgqa.zip https://s3.mlcloud.uni-tuebingen.de/czsl/cgqa-updated.zip
+# wget --show-progress -O $FOLDER/cgqa.zip https://s3.mlcloud.uni-tuebingen.de/czsl/cgqa-updated.zip
 
 echo "Data downloaded. Extracting files..."
 sed -i "s|ROOT_FOLDER|$FOLDER|g" utils/reorganize_utzap.py
@@ -65,10 +65,10 @@ python download_embeddings.py
 rm cc.en.300.bin.gz
 
 # Word2Vec
-cd ../w2v
-wget -c "https://s3.amazonaws.com/dl4j-distribution/GoogleNews-vectors-negative300.bin.gz"
-gzip -d GoogleNews-vectors-negative300.bin.gz
-rm GoogleNews-vectors-negative300.bin.gz
+# cd ../w2v
+# wget -c "https://s3.amazonaws.com/dl4j-distribution/GoogleNews-vectors-negative300.bin.gz"
+# gzip -d GoogleNews-vectors-negative300.bin.gz
+# rm GoogleNews-vectors-negative300.bin.gz
 
 cd ..
 rm -r data

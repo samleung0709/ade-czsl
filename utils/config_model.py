@@ -3,6 +3,7 @@ import torch.optim as optim
 
 from models.image_extractor import get_image_extractor
 from models.ade import ADE
+from models.enhanced_ade import EnhancedADE
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -13,6 +14,10 @@ def configure_model(args, dataset):
 
     if args.model == 'ade':
         model = ADE(dataset, args)
+        if dataset.open_world and not args.train_only:
+            is_open = True
+    elif args.model == 'enhanced_ade':
+        model = EnhancedADE(dataset, args)
         if dataset.open_world and not args.train_only:
             is_open = True
     else:
